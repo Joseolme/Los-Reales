@@ -3,8 +3,8 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
-/ElMatriarcado/[Ll]ibrary/
-/ElMatriarcado/[Tt]emp/
+/ElMatriarcado/Library/
+/ElMatriarcado/[Tt]emp/s
 /ElMatriarcado/[Oo]bj/
 /ElMatriarcado/[Bb]uild/
 /ElMatriarcado/[Bb]uilds/
