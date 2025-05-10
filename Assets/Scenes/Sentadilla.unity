@@ -658,8 +658,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressure: 35
-  pressureIncrease: 40
-  pushStrength: 10
+  pressureIncrease: 50
+  pushStrength: 5
   maxPunctuation: 10
 --- !u!1 &665761110
 GameObject:
