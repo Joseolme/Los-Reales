@@ -658,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressure: 35
-  pressureIncrease: 2
+  pressureIncrease: 40
   pushStrength: 10
   maxPunctuation: 10
 --- !u!1 &665761110

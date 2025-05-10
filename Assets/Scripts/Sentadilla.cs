@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Sentadilla : MonoBehaviour
 {
-    public int pressure=35;
-    public int pressureIncrease = 2;
+    public float pressure=35;
+    public float pressureIncrease = 40;
     private int maxPressure = 100;
     public int pushStrength = 10;
 
@@ -28,34 +28,42 @@ public class Sentadilla : MonoBehaviour
     {
         currentTime+= Time.deltaTime;
 
-        pressure += pressureIncrease;
-        anim.SetInteger("Pressure", pressure);
+        pressure += pressureIncrease/100;
+        anim.SetInteger("Pressure", (int)pressure);
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
             pressure -= pushStrength;
         }
         if (pressure > maxPressure)
         {
+            Debug.Log("Fail");
             Fail();
-        }else if (pressure > 0)
+        }else if (pressure < 0)
         {
+            Debug.Log("Success");
             Success();
         }else if(currentTime > maxTime)
         {
+            Debug.Log("PartialSuccess");
             PartialSuccess();
         }
     }
     private void Fail()
     {
-        gameManager.Instance.ImplementResults(-10); 
+        gameManager.Instance.ImplementResults(-10);
+        Debug.Log(gameManager.Instance.fitnessPuntctuation);
         Destroy(this);
     }
     private void Success()
     {
         gameManager.Instance.ImplementResults(maxPunctuation);
+        Debug.Log(gameManager.Instance.fitnessPuntctuation);
+        Destroy(this);
     }
     private void PartialSuccess()
     {
-        gameManager.Instance.ImplementResults(maxPunctuation * (1 - (pressure / 100)));
+        gameManager.Instance.ImplementResults(maxPunctuation * (1 - (pressure / 10)));
+        Debug.Log(gameManager.Instance.fitnessPuntctuation);
+        Destroy(this);
     }
 }
