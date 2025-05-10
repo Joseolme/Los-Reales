@@ -29,8 +29,9 @@ public class Sentadilla : MonoBehaviour
         currentTime+= Time.deltaTime;
 
         pressure += pressureIncrease/100;
-        anim.SetInteger("Pressure", (int)pressure);
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        
+        anim.SetFloat("Pressure", Mathf.Lerp(anim.GetFloat("Pressure"), pressure, .1f));
+        if (Input.GetKeyDown("space"))
         {
             pressure -= pushStrength;
         }
